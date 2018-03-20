@@ -1,0 +1,32 @@
+{
+  "name": "on-error-resume-next",
+  "version": "1.0.0-0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel --out-dir lib src --ignore **/*.spec.js,**/*.test.js",
+    "clean": "npx rimraf lib",
+    "versionCommit": "npx gulp-cli version-commit",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compulim/on-error-resume-next.git"
+  },
+  "author": "William Wong <compulim@hotmail.com> (http://compulim.info/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compulim/on-error-resume-next/issues"
+  },
+  "homepage": "https://github.com/compulim/on-error-resume-next#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^3.0.1",
+    "jest": "^22.4.2",
+    "last-commit-log": "^1.0.3"
+  }
+}
