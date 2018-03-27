@@ -1,4 +1,6 @@
-# on-error-resume-next [![Build Status](https://travis-ci.org/compulim/on-error-resume-next.svg?branch=master)](https://travis-ci.org/compulim/on-error-resume-next)
+# on-error-resume-next
+
+[![Build Status](https://travis-ci.org/compulim/on-error-resume-next.svg?branch=master)](https://travis-ci.org/compulim/on-error-resume-next)
 
 Run a function, synchronously or asynchronously, and ignore errors.
 
