@@ -2,7 +2,7 @@
 
 Run a function, synchronously or asynchronously, and ignore errors.
 
-[![Build Status](https://travis-ci.org/compulim/on-error-resume-next.svg?branch=master)](https://travis-ci.org/compulim/on-error-resume-next)
+[![npm version](https://badge.fury.io/js/on-error-resume-next.svg)](https://badge.fury.io/js/on-error-resume-next) [![Build Status](https://travis-ci.org/compulim/on-error-resume-next.svg?branch=master)](https://travis-ci.org/compulim/on-error-resume-next)
 
 The name come from [Visual Basic](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/on-error-statement). The original `On Error Resume Next` statement is considered a bad error handling practice.
 
