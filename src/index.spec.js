@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import onErrorResumeNext from '.';
 
 test('parse JSON succeeded', () => {
