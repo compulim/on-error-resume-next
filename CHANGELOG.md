@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2020-05-26
+
 ### Changed
 
 - Bump dependencies, in PR [#8](https://github.com/compulim/on-error-resume-next/pull/8)
