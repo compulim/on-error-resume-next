@@ -8,6 +8,8 @@ The name come from [Visual Basic](https://docs.microsoft.com/en-us/dotnet/visual
 
 Although the perception of the feature is negative, when scoped and used responsibly, it can become a very helpful utility function.
 
+# Breaking changes
+
 # Usage
 
 `onErrorResumeNext` will return the result if it is a success. For example,
@@ -33,15 +35,15 @@ expect(parsed).toBeUndefined();
 
 ## Asynchronous using async/await
 
-`onErrorResumeNext` will capture both exceptions (synchronous) and rejections (asynchronous). It is recommended to pair up with `await` keyword to handle both cases in the same way.
+`onErrorResumeNext` will capture both exceptions (synchronous) and rejections (asynchronous).
 
 ```js
+import onErrorResumeNext from 'on-error-resume-next/async';
+
 const res = await onErrorResumeNext(() => fetch('/health'));
 
-expect(res).toBeUndefined();
+await expect(res).resolves.toBeUndefined();
 ```
-
-> The code is for elaboration only, the better expectation should be `expect(res).resolves.toBeUndefined()`.
 
 # Contributions
 

@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Breaking changes
+
+- Synchronous and asynchronous are now separated into different exports
+   - Use `import { onErrorResumeNext } from 'on-error-resume-next'` for synchronous operations
+   - Use `import { onErrorResumeNext } from 'on-error-resume-next/async'` for asynchronous operations, will always return `Promise` regardless the rejection is handled synchronously or asynchronously
+
 ## [1.2.0] - 2020-05-26
 
 ### Changed
