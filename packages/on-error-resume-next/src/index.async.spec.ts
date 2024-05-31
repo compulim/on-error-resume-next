@@ -1,17 +1,4 @@
-import 'regenerator-runtime/runtime';
-import onErrorResumeNext from '.';
-
-test('parse JSON succeeded', () => {
-  const actual = onErrorResumeNext(() => JSON.parse('"Hello, World!"'));
-
-  expect(actual).toBe('Hello, World!');
-});
-
-test('parse JSON failed', () => {
-  const actual = onErrorResumeNext(() => JSON.parse('error'));
-
-  expect(actual).toBeUndefined();
-});
+import { onErrorResumeNext } from './index.async';
 
 test('promise succeeded', async () => {
   const promiseCall = jest.fn();
