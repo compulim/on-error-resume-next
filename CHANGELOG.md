@@ -6,9 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Breaking changes
+### Deprecated
 
-- Inrtoduced named exports and removed default imports
+- Introduced named exports and removed default imports
 - Synchronous and asynchronous are now separated into different exports
    - Use `import { onErrorResumeNext } from 'on-error-resume-next'` for synchronous functions
    - Use `import { onErrorResumeNext } from 'on-error-resume-next/async'` for asynchronous functions, will always return `Promise` regardless the resolution and rejection is handled synchronously or asynchronously
