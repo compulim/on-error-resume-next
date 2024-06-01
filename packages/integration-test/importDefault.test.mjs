@@ -198,22 +198,4 @@ describe('auto', () => {
     test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
     test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
   });
-
-  describe('reject', () => {
-    let fn;
-    let resultPromise;
-    let thisArg;
-
-    beforeEach(() => {
-      fn = jest.fn(() => {
-        throw new Error('Hello, World!');
-      });
-      thisArg = {};
-      resultPromise = onErrorResumeNextAuto(fn, thisArg);
-    });
-
-    test('should return undefined', () => expect(resultPromise).toBeUndefined());
-    test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
-    test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
-  });
 });

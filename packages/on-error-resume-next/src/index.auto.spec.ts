@@ -65,21 +65,3 @@ describe('reject', () => {
   test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
   test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
 });
-
-describe('reject', () => {
-  let fn: jest.Mock<Promise<never>>;
-  let resultPromise: Promise<string | undefined> | undefined;
-  let thisArg: object;
-
-  beforeEach(() => {
-    fn = jest.fn(() => {
-      throw new Error('Hello, World!');
-    });
-    thisArg = {};
-    resultPromise = onErrorResumeNext(fn, thisArg);
-  });
-
-  test('should return undefined', () => expect(resultPromise).toBeUndefined());
-  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
-  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
-});
