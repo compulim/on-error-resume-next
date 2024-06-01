@@ -1,4 +1,4 @@
-import { onErrorResumeNext } from './index';
+import { onErrorResumeNext } from './index.auto';
 
 describe('return', () => {
   let actual: string | undefined;
@@ -33,31 +33,35 @@ describe('throw', () => {
 });
 
 describe('resolve', () => {
-  let fn: jest.Mock<Promise<number>>;
+  let fn: jest.Mock<Promise<string>>;
+  let resultPromise: Promise<string | undefined> | undefined;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => Promise.resolve(1));
+    fn = jest.fn(() => Promise.resolve('Hello, World!'));
     thisArg = {};
+    resultPromise = onErrorResumeNext(fn, thisArg);
   });
 
-  test('should throw', () =>
-    expect(() => onErrorResumeNext(fn, thisArg)).toThrow(
-      'Promise is not supported, please use "on-error-resume-next/async" instead.'
-    ));
+  test('should return a Promise', () => expect(typeof resultPromise?.then).toBe('function'));
+  test('should resolve to the result', () => expect(resultPromise).resolves.toBe('Hello, World!'));
+  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
+  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
 });
 
 describe('reject', () => {
-  let fn: jest.Mock<Promise<unknown>>;
+  let fn: jest.Mock<Promise<never>>;
+  let resultPromise: Promise<string | undefined> | undefined;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => Promise.reject(new Error('error')).catch(() => {}));
+    fn = jest.fn(() => Promise.reject(new Error('Hello, World!')));
     thisArg = {};
+    resultPromise = onErrorResumeNext(fn, thisArg);
   });
 
-  test('should throw', () =>
-    expect(() => onErrorResumeNext(fn, thisArg)).toThrow(
-      'Promise is not supported, please use "on-error-resume-next/async" instead.'
-    ));
+  test('should return a Promise', () => expect(typeof resultPromise?.then).toBe('function'));
+  test('should resolve to undefined', () => expect(resultPromise).resolves.toBeUndefined());
+  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
+  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
 });

@@ -25,6 +25,16 @@
         "types": "./dist/on-error-resume-next.async.d.ts",
         "default": "./dist/on-error-resume-next.async.js"
       }
+    },
+    "./auto": {
+      "import": {
+        "types": "./dist/on-error-resume-next.auto.d.mts",
+        "default": "./dist/on-error-resume-next.auto.mjs"
+      },
+      "require": {
+        "types": "./dist/on-error-resume-next.auto.d.ts",
+        "default": "./dist/on-error-resume-next.auto.js"
+      }
     }
   },
   "main": "./dist/on-error-resume-next.js",
