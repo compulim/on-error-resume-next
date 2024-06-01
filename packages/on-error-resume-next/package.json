@@ -58,8 +58,11 @@
     "url": "git+https://github.com/compulim/on-error-resume-next.git"
   },
   "keywords": [
-    "message-port",
-    "rpc"
+    "basic",
+    "error",
+    "on error",
+    "vb",
+    "visual basic"
   ],
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
