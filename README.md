@@ -109,7 +109,7 @@ await expect(rejection).resolves.toBeUndefined();
 
 The following table show how each version react with different passing functions.
 
-|                      | Default (sync)            | 'async'                      | 'auto'                       |
+|                      | Default (sync)            | Async                        | Auto                         |
 | -------------------- | ------------------------- | ---------------------------- | ---------------------------- |
 | `return 1`           | `1`                       | `Promise.resolve(1)`         | `1`                          |
 | `throw 2`            | `undefined`               | `Promise.resolve(undefined)` | `undefined`                  |
