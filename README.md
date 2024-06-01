@@ -31,14 +31,14 @@ It is recommended to use either synchronous or asynchronous version for better c
 import { onErrorResumeNext } from 'on-error-resume-next';
 
 // Will return result on returns.
-const parsed = onErrorResumeNext(() => JSON.parse('{"hello":"World!"}'));
+const returned = onErrorResumeNext(() => JSON.parse('{"hello":"World!"}'));
 
-expect(parsed).toEqual({ hello: 'World!' });
+expect(returned).toEqual({ hello: 'World!' });
 
 // Will return undefined on throws.
-const cannotParsed = onErrorResumeNext(() => JSON.parse('<xml />'));
+const thrown = onErrorResumeNext(() => JSON.parse('<xml />'));
 
-expect(cannotParsed).toBeUndefined();
+expect(thrown).toBeUndefined();
 ```
 
 Notes: if an asynchronous function is being passed to `onErrorResumeNext()`, it will throw to protect from false negatives. Please use `on-error-resume-next/async` for asynchronous functions.
@@ -56,9 +56,9 @@ const resolution = onErrorResumeNext(() => Promise.resolve('Hello, World!'));
 await expect(resolution).resolves.toBe('Hello, World!');
 
 // "async" will return Promise on returns.
-const resolution = onErrorResumeNext(() => 'Hello, World!');
+const returned = onErrorResumeNext(() => 'Hello, World!');
 
-await expect(resolution).resolves.toBe('Hello, World!');
+await expect(returned).resolves.toBe('Hello, World!');
 
 // "async" will return Promise on rejects.
 const rejection = onErrorResumeNext(() => Promise.reject(new Error()));
