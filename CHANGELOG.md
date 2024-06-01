@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Fixed [#30](https://github.com/compulim/on-error-resume-next/issues/30). When bundling for browser, should not fail with `isPromise` being imported from Node.js, in PR [#31](https://github.com/compulim/on-error-resume-next/pull/31).
+
 ## [2.0.0] - 2024-06-01
 
 ### Added
