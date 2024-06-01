@@ -16,7 +16,7 @@ When using `onErrorResumeNext`, please be responsible and fully understand the i
 
 We introduced named exports and no default imports. The default is synchronous. The "auto async" version is being moved to under 'on-error-resume-next/auto'.
 
-````diff
+```diff
 - import onErrorResumeNext from 'on-error-resume-next';
 + import { onErrorResumeNext } from 'on-error-resume-next/auto';
 ```
