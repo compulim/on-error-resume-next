@@ -23,7 +23,7 @@ If you are using v1, you will need to port your code as follow:
 
 ### Added
 
-- Separated sync, async, and auto version, in PR [#24](https://github.com/compulim/on-error-resume-next/pull/24) and [#25](https://github.com/compulim/on-error-resume-next/pull/25)
+- Added synchronous and asynchronous versions, in PR [#24](https://github.com/compulim/on-error-resume-next/pull/24) and [#25](https://github.com/compulim/on-error-resume-next/pull/25)
 
 ## [1.2.0] - 2020-05-26
 
