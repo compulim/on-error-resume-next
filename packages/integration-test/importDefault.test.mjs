@@ -182,7 +182,7 @@ describe('auto', () => {
     test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
   });
 
-  describe('promise failed asynchronously', () => {
+  describe('reject', () => {
     let fn;
     let resultPromise;
     let thisArg;

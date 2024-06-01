@@ -49,7 +49,7 @@ describe('resolve', () => {
   test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
 });
 
-describe('promise failed asynchronously', () => {
+describe('reject', () => {
   let fn: jest.Mock<Promise<never>>;
   let resultPromise: Promise<string | undefined> | undefined;
   let thisArg: object;
