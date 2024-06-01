@@ -41,7 +41,10 @@ describe('resolve', () => {
     thisArg = {};
   });
 
-  test('should throw', () => expect(() => onErrorResumeNext(fn, thisArg)).toThrow());
+  test('should throw', () =>
+    expect(() => onErrorResumeNext(fn, thisArg)).toThrow(
+      'Promise is not supported, please use "on-error-resume-next/async" instead.'
+    ));
 });
 
 describe('reject', () => {
@@ -53,5 +56,8 @@ describe('reject', () => {
     thisArg = {};
   });
 
-  test('should throw', () => expect(() => onErrorResumeNext(fn, thisArg)).toThrow());
+  test('should throw', () =>
+    expect(() => onErrorResumeNext(fn, thisArg)).toThrow(
+      'Promise is not supported, please use "on-error-resume-next/async" instead.'
+    ));
 });
