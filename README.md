@@ -14,14 +14,14 @@ When using `onErrorResumeNext`, please be responsible and fully understand the i
 
 ## New in 2.0
 
-We introduced named exports and removed default imports. The default is synchronous. The "auto async" version is being moved to under 'on-error-resume-next/auto'.
+We introduced named exports and removed default imports. The default is synchronous. The "auto-detection" version is being moved to under 'on-error-resume-next/auto'.
 
 ```diff
 - import onErrorResumeNext from 'on-error-resume-next';
 + import { onErrorResumeNext } from 'on-error-resume-next/auto';
 ```
 
-It is recommended to use either sync or async version for better clarity.
+It is recommended to use either synchronous or asynchronous version for better clarity.
 
 # Usage
 
@@ -39,19 +39,24 @@ expect(parsed).toEqual({ hello: 'World!' });
 const cannotParsed = onErrorResumeNext(() => JSON.parse('<xml />'));
 
 expect(cannotParsed).toBeUndefined();
-````
+```
 
-If an asynchronous function is being passed to `onErrorResumeNext()`, it will throw to protect itself from false negatives as it will ignore rejections. Please use `on-error-resume-next/async` for asynchronous functions.
+Notes: if an asynchronous function is being passed to `onErrorResumeNext()`, it will throw to protect from false negatives. Please use `on-error-resume-next/async` for asynchronous functions.
 
-## Asynchronous using async/await
+## Asynchronous using `async`/`await`
 
-`onErrorResumeNext` will capture both exceptions (synchronous) and rejections (asynchronous).
+`onErrorResumeNext` will capture both exceptions (synchronous) and rejections (asynchronous). The returned value is always a `Promise` object.
 
 ```js
 import { onErrorResumeNext } from 'on-error-resume-next/async';
 
 // "async" will return Promise on resolves.
 const resolution = onErrorResumeNext(() => Promise.resolve('Hello, World!'));
+
+await expect(resolution).resolves.toBe('Hello, World!');
+
+// "async" will return Promise on returns.
+const resolution = onErrorResumeNext(() => 'Hello, World!');
 
 await expect(resolution).resolves.toBe('Hello, World!');
 
@@ -68,9 +73,9 @@ const thrown = onErrorResumeNext(() => {
 await expect(thrown).resolves.toBeUndefined();
 ```
 
-## Auto-detecting synchronous/asynchronous operations
+## Auto-detecting synchronous/asynchronous functions
 
-> For best experience, please use sync or async version instead.
+> For best experience, please use synchronous or asynchronous version instead.
 
 `on-error-resume-next/auto` will handle both exceptions (synchronous) and rejections (asynchronous) accordingly.
 
@@ -101,6 +106,8 @@ await expect(rejection).resolves.toBeUndefined();
 ```
 
 ## Sync vs. async vs. auto
+
+The following table show how each version react with different passing functions.
 
 |                      | Default (sync)            | 'async'                      | 'auto'                       |
 | -------------------- | ------------------------- | ---------------------------- | ---------------------------- |
