@@ -15,7 +15,7 @@ body:
       description: |
         Please verify the issue on latest versions. Support on non-latest version is minimal and on a per case basis.
 
-        If you are using latest production, please verify against our latest development version as the issue could have been resolved recently. To install latest development version, run `npm install message-port-rpc@main`.
+        If you are using latest production, please verify against our latest development version as the issue could have been resolved recently. To install latest development version, run `npm install on-error-resume-next@main`.
 
       multiple: true
       options:
@@ -30,8 +30,8 @@ body:
       description: Please describe how you import our package.
       multiple: true
       options:
-        - 'ESM: import { messagePortRPC } from "message-port-rpc"'
-        - 'CommonJS: require("message-port-rpc")'
+        - 'ESM: import { onErrorResumeNext } from "on-error-resume-next"'
+        - 'CommonJS: require("on-error-resume-next")'
         - Others or unrelated
     validations:
       required: true
@@ -77,48 +77,23 @@ body:
         *Support will be slow or denied if a test case is not provided.*
       render: js
       value: |
-        import { afterEach, beforeEach, describe, expect, jest, test } from '@jest/globals';
-
-        import messagePortRPC from './messagePortRPC';
-        import waitFor from '../__test__/__setup__/waitFor';
+        import { beforeEach, describe, expect, jest, test } from '@jest/globals';
+        import { onErrorResumeNext } from 'on-error-resume-next';
 
         describe('scenario name', () => {
-          type Fn = (x: number, y: number) => number;
+          let actual: string | undefined;
+          let fn: jest.Mock<string>;
+          let thisArg: object;
 
-          let fn: jest.Mock<Fn>;
-          let port1: MessagePort;
-          let port2: MessagePort;
-          let rpc: ReturnType<typeof messagePortRPC<Fn>>;
-
-          // GIVEN: Stub to perform summation.
-          beforeEach(async () => {
-            ({ port1, port2 } = new MessageChannel());
-
-            fn = jest.fn<Fn>((x, y) => x + y);
-
-            messagePortRPC<Fn>(port1, fn);
-            rpc = messagePortRPC<Fn>(port2);
+          beforeEach(() => {
+            fn = jest.fn(() => JSON.parse('"Hello, World!"'));
+            thisArg = {};
+            actual = onErrorResumeNext(fn, thisArg);
           });
 
-          afterEach(() => {
-            port1?.close();
-            port2?.close();
-          });
-
-          describe('when called with 1 and 2', () => {
-            let promise: Promise<number>;
-
-            // WHEN: Called with 1 and 2.
-            beforeEach(() => {
-              promise = rpc(1, 2);
-            });
-
-            // THEN: Should have called the server stub.
-            test('should call the server stub', () => waitFor(() => expect(fn).toBeCalledTimes(1)));
-
-            // THEN: Should return 3.
-            test('should resolve 3', () => waitFor(() => expect(promise).resolves.toBe(3)));
-          });
+          test('should return the result', () => expect(actual).toBe('Hello, World!'));
+          test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
+          test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
         });
 
   - type: input
