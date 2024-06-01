@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Synchronous and asynchronous are now separated into different exports
    - Use `import { onErrorResumeNext } from 'on-error-resume-next'` for synchronous operations
    - Use `import { onErrorResumeNext } from 'on-error-resume-next/async'` for asynchronous operations, will always return `Promise` regardless the rejection is handled synchronously or asynchronously
+   - Use `import { onErrorResumeNext } from 'on-error-resume-next/auto'` for auto-detect, will return `undefined` if async function throw synchronously
+
+### Added
+
+- Separated sync, async, and auto version, in PR [#24](https://github.com/compulim/on-error-resume-next/pull/24) and [#25](https://github.com/compulim/on-error-resume-next/pull/25)
 
 ## [1.2.0] - 2020-05-26
 

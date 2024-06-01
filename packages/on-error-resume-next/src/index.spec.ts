@@ -1,13 +1,57 @@
 import { onErrorResumeNext } from './index';
 
-test('parse JSON succeeded', () => {
-  const actual = onErrorResumeNext(() => JSON.parse('"Hello, World!"'));
+describe('return', () => {
+  let actual: string | undefined;
+  let fn: jest.Mock<string>;
+  let thisArg: object;
 
-  expect(actual).toBe('Hello, World!');
+  beforeEach(() => {
+    fn = jest.fn(() => JSON.parse('"Hello, World!"'));
+    thisArg = {};
+    actual = onErrorResumeNext(fn, thisArg);
+  });
+
+  test('should return the result', () => expect(actual).toBe('Hello, World!'));
+  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
+  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
 });
 
-test('parse JSON failed', () => {
-  const actual = onErrorResumeNext(() => JSON.parse('error'));
+describe('throw', () => {
+  let actual: string | undefined;
+  let fn: jest.Mock<string>;
+  let thisArg: object;
 
-  expect(actual).toBeUndefined();
+  beforeEach(() => {
+    fn = jest.fn(() => JSON.parse('error'));
+    thisArg = {};
+    actual = onErrorResumeNext(fn, thisArg);
+  });
+
+  test('should return undefined', () => expect(actual).toBeUndefined());
+  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
+  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
+});
+
+describe('resolve', () => {
+  let fn: jest.Mock<Promise<number>>;
+  let thisArg: object;
+
+  beforeEach(() => {
+    fn = jest.fn(() => Promise.resolve(1));
+    thisArg = {};
+  });
+
+  test('should throw', () => expect(() => onErrorResumeNext(fn, thisArg)).toThrow());
+});
+
+describe('reject', () => {
+  let fn: jest.Mock<Promise<unknown>>;
+  let thisArg: object;
+
+  beforeEach(() => {
+    fn = jest.fn(() => Promise.reject(new Error('error')).catch(() => {}));
+    thisArg = {};
+  });
+
+  test('should throw', () => expect(() => onErrorResumeNext(fn, thisArg)).toThrow());
 });

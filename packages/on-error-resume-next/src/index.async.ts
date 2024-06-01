@@ -1,3 +1,5 @@
+import { isPromise } from 'util/types';
+
 export function onErrorResumeNext<T extends () => Promise<U>, U = unknown>(
   fn: T,
   context?: undefined
@@ -12,5 +14,17 @@ export function onErrorResumeNext<T extends (this: V) => Promise<U>, U = unknown
   fn: T,
   context: V
 ): Promise<U | undefined> {
-  return new Promise<U | undefined>(resolve => fn.call(context).then(resolve, () => resolve(undefined)));
+  return new Promise<U | undefined>(resolve => {
+    try {
+      const result = fn.call(context);
+
+      if (isPromise(result)) {
+        result.then(resolve, () => resolve(undefined));
+      } else {
+        resolve(result);
+      }
+    } catch {
+      resolve(undefined);
+    }
+  });
 }
