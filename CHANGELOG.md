@@ -1,10 +1,15 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2024-06-01
+
+### Added
+
+- Added synchronous and asynchronous versions, in PR [#24](https://github.com/compulim/on-error-resume-next/pull/24) and [#25](https://github.com/compulim/on-error-resume-next/pull/25)
 
 ### Deprecated
 
@@ -14,16 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
    - Use `import { onErrorResumeNext } from 'on-error-resume-next/async'` for asynchronous functions, will always return `Promise` regardless the resolution and rejection is handled synchronously or asynchronously
    - Use `import { onErrorResumeNext } from 'on-error-resume-next/auto'` to auto-detect (legacy behavior), will return on `return`/`throw`, and resolve on `resolve`/`reject`
 
-If you are using v1, you will need to port your code as follow:
+  If you are using v1, you will need to port your code as follow:
 
-```diff
+  ```diff
 - import onErrorResumeNext from 'on-error-resume-next';
-+ import { onErrorResumeNext } from 'on-error-resume-next/auto';
-```
-
-### Added
-
-- Added synchronous and asynchronous versions, in PR [#24](https://github.com/compulim/on-error-resume-next/pull/24) and [#25](https://github.com/compulim/on-error-resume-next/pull/25)
+  + import { onErrorResumeNext } from 'on-error-resume-next/auto';
+  ```
 
 ## [1.2.0] - 2020-05-26
 
@@ -64,3 +65,8 @@ If you are using v1, you will need to port your code as follow:
 ### Added
 
 - Initial commit
+
+[2.0.0]: https://github.com/compulim/on-error-resume-next/compare/v1.2.0...v2.0.0
+[1.2.0]: https://github.com/compulim/on-error-resume-next/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/compulim/on-error-resume-next/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/compulim/on-error-resume-next/releases/tag/v1.0.0
