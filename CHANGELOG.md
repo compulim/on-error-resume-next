@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Integration tests ported to mocha for better test conclusiveness, in PR [#34](https://github.com/compulim/on-error-resume-next/pull/34)
+
 ## [2.0.1] - 2024-06-01
 
 ### Fixed
