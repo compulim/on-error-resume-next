@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Integration tests ported to mocha for better test conclusiveness, in PR [#34](https://github.com/compulim/on-error-resume-next/pull/34)
+- Integration tests ported to mocha for better test conclusiveness, in PR [#34](https://github.com/compulim/on-error-resume-next/pull/34) and [#35](https://github.com/compulim/on-error-resume-next/pull/35)
 
 ## [2.0.1] - 2024-06-01
 
