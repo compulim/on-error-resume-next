@@ -18,7 +18,7 @@
     "on-error-resume-next": "^0.0.0-0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.14.9",
     "expect": "^29.7.0",
     "mocha": "^10.5.2",
     "sinon": "^18.0.0"
