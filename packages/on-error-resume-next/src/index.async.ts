@@ -1,4 +1,4 @@
-import isPromise from './private/isPromise';
+import isPromise from './private/isPromise.ts';
 
 export function onErrorResumeNext<T extends () => Promise<U>, U = unknown>(
   fn: T,
