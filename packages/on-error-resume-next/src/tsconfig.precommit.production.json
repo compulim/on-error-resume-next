@@ -17,5 +17,5 @@
     "**/*.test.tsx",
     "__tests__/**/*"
   ],
-  "extends": "@tsconfig/strictest/tsconfig.json"
+  "extends": "./tsconfig.custom.json"
 }
