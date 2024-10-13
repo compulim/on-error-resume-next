@@ -21,6 +21,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
       - [`typescript@5.5.2`](https://npmjs.com/package/typescript/v/5.5.2)
 - Added [ESLint import/export syntax](https://npmjs.com/package/eslint-plugin-import), in PR [#37](https://github.com/compulim/on-error-resume-next/pull/37)
 - Added [`publint`](https://npmjs.com/package/publint), in PR [#37](https://github.com/compulim/on-error-resume-next/pull/37)
+- Bumped dependencies, in PR [#39](https://github.com/compulim/on-error-resume-next/pull/39)
+  - Development dependencies
+    - [`@babel/preset-env@7.25.8`](https://npmjs.com/package/@babel/preset-env/v/7.25.8)
+    - [`@babel/preset-typescript@7.25.7`](https://npmjs.com/package/@babel/preset-typescript/v/7.25.7)
+    - [`@tsconfig/recommended@1.0.7`](https://npmjs.com/package/@tsconfig/recommended/v/1.0.7)
+    - [`@types/jest@29.5.13`](https://npmjs.com/package/@types/jest/v/29.5.13)
+    - [`@types/node@22.7.5`](https://npmjs.com/package/@types/node/v/22.7.5)
+    - [`@types/react@18.3.11`](https://npmjs.com/package/@types/react/v/18.3.11)
+    - [`@types/react-dom@18.3.1`](https://npmjs.com/package/@types/react-dom/v/18.3.1)
+    - [`@typescript-eslint/eslint-plugin@8.8.1`](https://npmjs.com/package/@typescript-eslint/eslint-plugin/v/8.8.1)
+    - [`@typescript-eslint/parser@8.8.1`](https://npmjs.com/package/@typescript-eslint/parser/v/8.8.1)
+    - [`esbuild@0.24.0`](https://npmjs.com/package/esbuild/v/0.24.0)
+    - [`eslint@9.12.0`](https://npmjs.com/package/eslint/v/9.12.0)
+    - [`eslint-plugin-prettier@5.2.1`](https://npmjs.com/package/eslint-plugin-prettier/v/5.2.1)
+    - [`eslint-plugin-react@7.37.1`](https://npmjs.com/package/eslint-plugin-react/v/7.37.1)
+    - [`mocha@10.7.3`](https://npmjs.com/package/mocha/v/10.7.3)
+    - [`prettier@3.3.3`](https://npmjs.com/package/prettier/v/3.3.3)
+    - [`sinon@19.0.2`](https://npmjs.com/package/sinon/v/19.0.2)
+    - [`tsup@8.3.0`](https://npmjs.com/package/tsup/v/8.3.0)
+    - [`typescript@5.6.3`](https://npmjs.com/package/typescript/v/5.6.3)
 
 ## [2.0.1] - 2024-06-01
 
@@ -89,6 +109,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Initial commit
 
+[Unreleased]: https://github.com/compulim/on-error-resume-next/compare/v2.0.1...HEAD
 [2.0.1]: https://github.com/compulim/on-error-resume-next/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/compulim/on-error-resume-next/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/compulim/on-error-resume-next/compare/v1.1.0...v1.2.0
