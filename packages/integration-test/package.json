@@ -17,6 +17,7 @@
     "on-error-resume-next": "^0.0.0-0"
   },
   "devDependencies": {
+    "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^22.7.5",
     "expect": "^29.7.0",
     "mocha": "^10.7.3",
