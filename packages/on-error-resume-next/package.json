@@ -3,7 +3,8 @@
   "version": "0.0.0-0",
   "description": "Run a function, synchronously or asynchronously, and ignore errors.",
   "files": [
-    "./dist/"
+    "./dist/",
+    "./*.js"
   ],
   "exports": {
     ".": {
