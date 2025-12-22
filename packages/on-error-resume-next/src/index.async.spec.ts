@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import { onErrorResumeNext } from './index.async';
 
 describe('return', () => {

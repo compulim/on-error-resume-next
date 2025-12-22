@@ -9,6 +9,7 @@ export default defineConfig([
       'on-error-resume-next.auto': './src/index.auto.ts'
     },
     format: ['cjs', 'esm'],
-    sourcemap: true
+    sourcemap: true,
+    target: 'esnext'
   }
 ]);
