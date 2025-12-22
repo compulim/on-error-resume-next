@@ -4,11 +4,10 @@ export default defineConfig([
   {
     dts: true,
     entry: {
-      'on-error-resume-next': './src/index.ts',
-      'on-error-resume-next.async': './src/index.async.ts',
-      'on-error-resume-next.auto': './src/index.auto.ts'
+      'on-error-resume-next': './src/index.ts'
     },
     format: ['cjs', 'esm'],
-    sourcemap: true
+    sourcemap: true,
+    target: 'esnext'
   }
 ]);
