@@ -18,7 +18,7 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "localPeerDependencies": {
-    "on-error-resume-next": "^0.0.0-0"
+    "on-error-resume-next": "0.0.0-0"
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.5",
@@ -28,7 +28,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "on-error-resume-next": "^0.0.0-0",
+    "on-error-resume-next": "0.0.0-0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "use-ref-from": "^0.1.0"
