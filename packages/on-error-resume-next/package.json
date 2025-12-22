@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/compulim/on-error-resume-next.git"
+    "url": "https://github.com/compulim/on-error-resume-next.git"
   },
   "keywords": [
     "basic",
