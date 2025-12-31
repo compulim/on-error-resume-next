@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+| Icon | Description                                                    |
+| ---- | -------------------------------------------------------------- |
+| 👷🏻   | Related to development experience and non-production impacting |
+
 ## [Unreleased]
+
+### Changed
+
+- 👷🏻 Test framework moved from Jest to Node.js test runner, by [@compulim](https://github.com/compulim) in PR [#52](https://github.com/compulim/on-error-resume-next/pull/52)
 
 ## [2.0.3] - 2025-12-22
 

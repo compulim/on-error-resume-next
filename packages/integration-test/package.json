@@ -1,8 +1,14 @@
 {
-  "name": "on-error-resume-next-integration-test",
+  "name": "@compulim/integration-test",
   "version": "0.0.0-0",
   "description": "",
   "private": true,
+  "files": [
+    "**/*.cjs",
+    "**/*.js",
+    "**/*.mjs",
+    "webDriver/**/*"
+  ],
   "scripts": {
     "build": "npm run build:copy && npm run build:custom --if-present",
     "bump": "npm run bump:prod && npm run bump:dev",
@@ -24,24 +30,18 @@
   "author": "William Wong (https://github.com/compulim)",
   "license": "MIT",
   "localPeerDependencies": {
-    "on-error-resume-next": "0.0.0-0",
-    "@compulim/test-harness": "0.0.0-0"
+    "@compulim/test-harness": "0.0.0-0",
+    "on-error-resume-next": "0.0.0-0"
   },
   "devDependencies": {
     "@testduet/wait-for": "^0.1.1",
     "@tsconfig/strictest": "^2.0.8",
     "@types/node": "^25.0.3",
     "expect": "^30.2.0",
-    "mocha": "^11.7.5",
+    "resolve-cwd": "^3.0.0",
     "sinon": "^21.0.1"
   },
   "dependencies": {
     "on-error-resume-next": "0.0.0-0"
-  },
-  "files": [
-    "**/*.cjs",
-    "**/*.js",
-    "**/*.mjs",
-    "webDriver/**/*"
-  ]
+  }
 }

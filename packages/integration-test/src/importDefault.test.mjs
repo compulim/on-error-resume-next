@@ -1,4 +1,5 @@
 import { expect } from 'expect';
+import { beforeEach, describe, it } from 'node:test';
 import { onErrorResumeNext as onErrorResumeNextSync } from 'on-error-resume-next';
 import { onErrorResumeNext as onErrorResumeNextAsync } from 'on-error-resume-next/async';
 import { onErrorResumeNext as onErrorResumeNextAuto } from 'on-error-resume-next/auto';
