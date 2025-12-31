@@ -1,4 +1,5 @@
 const { expect } = require('expect');
+const { beforeEach, describe, it } = require('node:test');
 const { onErrorResumeNext: onErrorResumeNextSync } = require('on-error-resume-next');
 const { onErrorResumeNext: onErrorResumeNextAsync } = require('on-error-resume-next/async');
 const { onErrorResumeNext: onErrorResumeNextAuto } = require('on-error-resume-next/auto');

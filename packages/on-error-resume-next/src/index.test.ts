@@ -1,45 +1,45 @@
-/// <reference types="jest" />
-
-import { onErrorResumeNext } from './index';
+import { expect } from 'expect';
+import { describe, beforeEach, mock, test, type Mock } from 'node:test';
+import { onErrorResumeNext } from './index.ts';
 
 describe('return', () => {
   let actual: string | undefined;
-  let fn: jest.Mock<string>;
+  let fn: Mock<() => string>;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => JSON.parse('"Hello, World!"'));
+    fn = mock.fn(() => JSON.parse('"Hello, World!"'));
     thisArg = {};
     actual = onErrorResumeNext(fn, thisArg);
   });
 
   test('should return the result', () => expect(actual).toBe('Hello, World!'));
-  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
-  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
+  test('should call the function once', () => expect(fn.mock.callCount()).toBe(1));
+  test('should call the function with context', () => expect(fn.mock.calls[0]?.this).toBe(thisArg));
 });
 
 describe('throw', () => {
   let actual: string | undefined;
-  let fn: jest.Mock<string>;
+  let fn: Mock<() => string>;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => JSON.parse('error'));
+    fn = mock.fn(() => JSON.parse('error'));
     thisArg = {};
     actual = onErrorResumeNext(fn, thisArg);
   });
 
   test('should return undefined', () => expect(actual).toBeUndefined());
-  test('should call the function once', () => expect(fn).toHaveBeenCalledTimes(1));
-  test('should call the function with context', () => expect(fn.mock.contexts[0]).toBe(thisArg));
+  test('should call the function once', () => expect(fn.mock.callCount()).toBe(1));
+  test('should call the function with context', () => expect(fn.mock.calls[0]?.this).toBe(thisArg));
 });
 
 describe('resolve', () => {
-  let fn: jest.Mock<Promise<number>>;
+  let fn: Mock<() => Promise<number>>;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => Promise.resolve(1));
+    fn = mock.fn(() => Promise.resolve(1));
     thisArg = {};
   });
 
@@ -50,11 +50,11 @@ describe('resolve', () => {
 });
 
 describe('reject', () => {
-  let fn: jest.Mock<Promise<unknown>>;
+  let fn: Mock<() => Promise<unknown>>;
   let thisArg: object;
 
   beforeEach(() => {
-    fn = jest.fn(() => Promise.reject(new Error('error')).catch(() => {}));
+    fn = mock.fn(() => Promise.reject(new Error('error')).catch(() => {}));
     thisArg = {};
   });
 

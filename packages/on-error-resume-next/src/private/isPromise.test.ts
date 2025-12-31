@@ -1,4 +1,6 @@
-import isPromise from './isPromise';
+import { expect } from 'expect';
+import { test } from 'node:test';
+import isPromise from './isPromise.ts';
 
 test('passing a Promise object should return true', () => expect(isPromise(new Promise(() => {}))).toBe(true));
 test('passing Promise.reject should return true', () => expect(isPromise(Promise.reject().catch(() => {}))).toBe(true));
